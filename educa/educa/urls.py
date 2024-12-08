@@ -27,6 +27,8 @@ urlpatterns = [
           name='logout'),
     path('admin/', admin.site.urls),
     path('course/', include('courses.urls')),
+    path('students/', include('students.urls')),
+    path('api/', include('courses.api.urls', namespace='api')),
 ]
 
 if settings.DEBUG:
