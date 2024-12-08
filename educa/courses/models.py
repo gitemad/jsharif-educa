@@ -81,7 +81,7 @@ class Content(models.Model):
 class ItemBase(models.Model):
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
-        related_name='%(class)s_realted',
+        related_name='%(class)s_related',
         on_delete=models.CASCADE,
     )
     title = models.CharField(max_length=200)
