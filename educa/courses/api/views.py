@@ -4,6 +4,7 @@ from .serializers import SubjectSerializer, CourseListSerializer, CourseDetailSe
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from rest_framework.authentication import BasicAuthentication
 
 class SubjectListView(generics.ListAPIView):
     queryset = Subject.objects.all()
@@ -22,6 +23,8 @@ class CourseDetailView(generics.RetrieveAPIView):
     serializer_class = CourseDetailSerializer
 
 class CourseEnrollView(APIView):
+    queryset = Course.objects.all()
+
     def post(self, request, pk):
         course = get_object_or_404(
             Course,
